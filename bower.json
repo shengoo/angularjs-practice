@@ -1,0 +1,17 @@
+{
+  "name": "try angularjs",
+  "version": "0.0.0",
+  "homepage": "https://github.com/shengoo/angularjs-practice",
+  "authors": [
+    "shengoo <shengoo@hotmail.com>"
+  ],
+  "description": "some practice",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

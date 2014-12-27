@@ -7,10 +7,11 @@
     <script src="../bower_components/angular/angular.js"></script>
 </head>
 <body ng-controller="ctrl">
+<div class="container">
 <trans>
-    <blockquote>this paragraph will be transcluded.</blockquote>
+    <blockquote>This paragraph will be transcluded.</blockquote>
 </trans>
-
+</div>
 <script>
     angular.module("app",[])
             .controller("ctrl",function($scope){
@@ -22,7 +23,7 @@
                     transclude: true,
                     replace: true,
                     template:'<div class="well">' +
-                    '<p class="text-primary">below is transclude</p>' +
+                    '<p class="text-primary">Below is transclude</p>' +
                     '<div ng-transclude=""></div>' +
                     '' +
                     '</div>'

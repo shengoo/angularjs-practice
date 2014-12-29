@@ -5,5 +5,5 @@ angularjs-practice
 ```
 $ npm install
 $ bower install
-$ grunt serve
+$ grunt server
 ```

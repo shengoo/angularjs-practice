@@ -13,22 +13,22 @@
 </trans>
 </div>
 <script>
-    angular.module("app",[])
-            .controller("ctrl",function($scope){
+angular.module("app",[])
+.controller("ctrl",function($scope){
 
-            })
-            .directive('trans',function(){
-                return {
-                    restrict: "E",
-                    transclude: true,
-                    replace: true,
-                    template:'<div class="well">' +
-                    '<p class="text-primary">Below is transclude:</p>' +
-                    '<div ng-transclude=""></div>' +
-                    '' +
-                    '</div>'
-                };
-            })
+})
+.directive('trans',function(){
+  return {
+    restrict: "E",
+    transclude: true,
+    replace: true,
+    template: '<div class="well">' +
+              '<p class="text-primary">Below is transclude:</p>' +
+              '<div ng-transclude=""></div>' +
+              '' +
+              '</div>'
+  };
+})
 </script>
 </body>
 </html>

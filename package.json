@@ -1,0 +1,27 @@
+{
+  "name": "angularjs-practice",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "grunt": "~0.4.5"
+  },
+  "devDependencies": {
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-express": "^1.4.1",
+    "grunt-open": "^0.2.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shengoo/angularjs-practice.git"
+  },
+  "author": "shengoo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shengoo/angularjs-practice/issues"
+  },
+  "homepage": "https://github.com/shengoo/angularjs-practice"
+}

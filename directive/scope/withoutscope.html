@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css">
+  <script src="../../bower_components/angular/angular.js"></script>
+</head>
+<body>
+<div class="container">
+<h1>wrong way</h1>
+  <person></person>
+  <person></person>
+  <person></person>
+</div>
+<script>
+var app=angular.module('app',[])
+.directive("person",function(){
+  return{
+    restrict: "E",
+    template: '<input type="text" ng-model="name">{{name}}' 
+  }
+});
+</script>
+</body>
+</html>

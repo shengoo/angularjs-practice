@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
+  <script src="../bower_components/angular/angular.js"></script>
+</head>
+<body ng-controller="ctrl">
+<div class="container">
+<div expose="exposedApi"></div>
+<a ng-click="count()" class="btn btn-primary">click</a>
+<div expose="exposedApi2"></div>
+<a ng-click="count2()" class="btn btn-primary">click</a>
+</div>
+<script>
+angular.module("app",[])
+.controller("ctrl",function($scope){
+  $scope.count = function(){
+    $scope.exposedApi.count();
+  };
+  $scope.count2 = function(){
+    $scope.exposedApi2.count();
+  };
+})
+.directive('expose',function(){
+  return {
+    restrict: "A",
+    scope: {
+      api: "=expose"
+    },
+    controller: function($scope){
+      $scope.number = 0;
+      $scope.api={
+        count:function(){
+          $scope.number ++;
+        }
+      };
+    },
+    template: '<div class="well">' +
+              '<p>count: {{number}}</p>' +
+              '</div>'
+  };
+})
+</script>
+</body>
+</html>

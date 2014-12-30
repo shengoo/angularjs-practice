@@ -25,8 +25,8 @@ var app=angular.module('app',[])
     scope: {
       "hi": "&sayHi"
     },
-    template: '<input type="text" ng-model="name">{{name}}' + 
-              '<a ng-click="hi()" class="btn btn-default">click</a>' 
+    template: '<div class="well"><input type="text" ng-model="name">{{name}}' + 
+              '<a ng-click="hi()" class="btn btn-default">click</a></div>' 
   }
 });
 </script>

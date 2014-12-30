@@ -8,25 +8,25 @@
 </head>
 <body ng-controller="ctrl">
 <div class="container">
-  <person sayHi="sayHi"></person>
+  <person say-hi="sayHi()"></person>
   <person></person>
   <person></person>
 </div>
 <script>
 var app=angular.module('app',[])
 .controller("ctrl",function($scope){
-  $scope.sayHi=function(name){
-    console.log("hi from " + name);
+  $scope.sayHi=function(){
+    console.log("hi");
   }
 })
 .directive("person",function(){
   return{
     restrict: "E",
-    scope{
-      sayHi: "&"
+    scope: {
+      "hi": "&sayHi"
     },
     template: '<input type="text" ng-model="name">{{name}}' + 
-              '<input ng-click=sayHi() type="button" class="btn btn-default>click</input>' 
+              '<a ng-click="hi()" class="btn btn-default">click</a>' 
   }
 });
 </script>

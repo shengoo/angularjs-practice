@@ -1,8 +1,23 @@
 var app = angular.module("app", []);
+app.controller('ctrl',function($scope){
+  $scope.max = 5;
+  $scope.ratingVal = 2;
+  $scope.readonly = false;
+  $scope.onHover = function(val){
+    $scope.hoverVal = val;
+  };
+  $scope.onLeave = function(){
+    $scope.hoverVal = null;
+  }
+  $scope.onChange = function(val){
+    $scope.ratingVal = val;
+  }
+
+});
 app.directive('star', function () {
   return {
-    template: '<ul class="rating">' +
-        '<li ng-repeat="star in stars" ng-class="star" ng-click="toggle($index)">' +
+    template: '<ul class="rating" ng-mouseleave="leave()">' +
+        '<li ng-repeat="star in stars" ng-class="star" ng-click="click($index + 1)" ng-mouseover="over($index + 1)">' +
         '\u2605' +
         '</li>' +
         '</ul>',
@@ -10,12 +25,27 @@ app.directive('star', function () {
       ratingValue: '=',
       max: '=',
       readonly: '@',
-      onRatingSelected: '&'
+      onHover: '=',
+      onLeave: '='
+    },
+    controller: function($scope){
+      $scope.ratingValue = $scope.ratingValue || 0;
+      $scope.max = $scope.max || 5;
+      $scope.click = function(val){
+        if ($scope.readonly && $scope.readonly === 'true') {
+          return;
+        }
+        $scope.ratingValue = val;
+      };
+      $scope.over = function(val){
+        $scope.onHover(val);
+      };
+      $scope.leave = function(){
+        $scope.onLeave();
+      }
     },
     link: function (scope, elem, attrs) {
       elem.css("text-align", "center");
-      scope.ratingValue = scope.ratingValue || 0;
-      scope.max = scope.max || 5;
       var updateStars = function () {
         scope.stars = [];
         for (var i = 0; i < scope.max; i++) {
@@ -25,16 +55,13 @@ app.directive('star', function () {
         }
       };
       updateStars();
-      scope.toggle = function (index) {
-        if (scope.readonly && scope.readonly === 'true') {
-          return;
-        }
-        //freeze rating while display
-        //scope.ratingValue = index + 1;
-        scope.onRatingSelected();
-      };
  
       scope.$watch('ratingValue', function (oldVal, newVal) {
+        if (newVal) {
+          updateStars();
+        }
+      });
+      scope.$watch('max', function (oldVal, newVal) {
         if (newVal) {
           updateStars();
         }

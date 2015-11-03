@@ -10,7 +10,7 @@
 <div class="container">
     <ul>
         <li ng-repeat="item in data">
-            <span>{{item| json}}</span><b>{{item.val| use_filter:item.filter:item.formatter}}</b>
+            <span>{{item| json}}</span>:<b>{{item.val| use_filter:item.filter:item.formatter}}</b>
         </li>
     </ul>
 </div>

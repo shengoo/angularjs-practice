@@ -15,23 +15,23 @@
     </ul>
 </div>
 <script>
-angular.module("app",[])
-.controller("ctrl",function($scope){
-    $scope.data = [
-        {val:"text"},
-        {val:"upper text",filter:"uppercase"},
-        {val:new Date(),filter:"date",formatter:"yyyy-MM-dd"}
-    ];
-})
-.filter('use_filter', function ($filter) {
-    return function (value, filterName, formatter) {
-        return filterName ?
-                (formatter ?
-                    $filter(filterName)(value, formatter) :
-                    $filter(filterName)(value)) :
-                value;
-    };
-});
+    angular.module("app", [])
+            .controller("ctrl", function ($scope) {
+                $scope.data = [
+                    {val: "text"},
+                    {val: "upper text", filter: "uppercase"},
+                    {val: new Date(), filter: "date", formatter: "yyyy-MM-dd"}
+                ];
+            })
+            .filter('use_filter', function ($filter) {
+                return function (value, filterName, formatter) {
+                    return filterName ?
+                            (formatter ?
+                                    $filter(filterName)(value, formatter) :
+                                    $filter(filterName)(value)) :
+                            value;
+                };
+            });
 </script>
 </body>
 </html>

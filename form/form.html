@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Validate form</title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="form.js"></script>
+</head>
+<body class="container" ng-controller="formctrl as vm">
+<div class="panel panel-default">
+    <div class="panel-heading">Form</div>
+    <div class="panel-body">
+        <form novalidate name="form" ng-submit="vm.submit(vm.form)">
+            <div class="form-group"
+                 ng-class="{'has-error':((form.$submitted||form.email.$touched)&&(form.email.$error.required||form.email.$error.email))}">
+                <label class="control-label" for="email">Email</label>
+                <input ng-model="vm.form.email" name="email"
+                       type="email" class="form-control" id="email"required>
+                <div ng-show="form.$submitted || form.email.$touched">
+                    <span ng-show="form.email.$error.required" class="help-block">required</span>
+                    <span ng-show="form.email.$error.email" class="help-block">email not valid</span>
+                </div>
+            </div>
+            <div class="form-group"
+                 ng-class="{'has-error':((form.$submitted||form.username.$touched)&&form.username.$error.required)}">
+                <label class="control-label" for="inputSuccess1">Username</label>
+                <input ng-model="vm.form.username" name="username"
+                       type="text" class="form-control" id="inputSuccess1"required>
+                <div ng-show="form.$submitted || form.username.$touched">
+                    <span ng-show="form.username.$error.required" class="help-block">required</span>
+                </div>
+            </div>
+            <div class="form-group"
+                 ng-class="{'has-error':((form.$submitted||form.password.$touched)&&form.password.$error.required)}">
+                <label class="control-label" for="password">Password</label>
+                <input ng-model="vm.form.password" name="password"
+                       type="text" class="form-control" id="password"required>
+                <div ng-show="form.$submitted || form.password.$touched">
+                    <span ng-show="form.password.$error.required" class="help-block">required</span>
+                </div>
+            </div>
+            <div class="form-group"
+                 ng-class="{'has-error':((form.$submitted||form.repassword.$touched)&&form.repassword.$error.required)}">
+                <label class="control-label" for="repassword">Re Password</label>
+                <input ng-model="vm.form.repassword" name="repassword"
+                       type="text" class="form-control" id="repassword"required>
+                <div ng-show="form.$submitted || form.repassword.$touched">
+                    <span ng-show="form.repassword.$error.required" class="help-block">required</span>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+    </div>
+</div>
+
+<div class="well">
+
+</div>
+</body>
+</html>

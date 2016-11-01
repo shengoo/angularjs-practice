@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Document</title>
-  <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css">
-  <script src="../../bower_components/angular/angular.js"></script>
-  <link rel="stylesheet" type="text/css" href="star.css">
-  <script type="text/javascript" src="star.js"></script>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="../../bower_components/angular/angular.js"></script>
+    <link rel="stylesheet" type="text/css" href="star.css">
+    <script type="text/javascript" src="star.js"></script>
 </head>
 <body>
 <div ng-app="app">
-<div class="well" ng-controller="ctrl">
-  <div star rating-value="ratingVal" max="max" on-hover="onHover" on-leave="onLeave" readonly="{{readonly}}"></div>
-  <div>
-    Max: <input type="number" name="input" ng-model="max" min="0" max="99" required>
-    <p>current value: {{ratingVal}}</p>
-    <p>hover on : {{hoverVal?hoverVal:"none"}}</p>
-    <p>readonly : <input type="checkbox"
-       ng-model="readonly"></p>
-  </div>
-</div>
+    <div class="well" ng-controller="ctrl">
+        <div star rating-value="ratingVal" max="max" on-hover="onHover" on-leave="onLeave"
+             readonly="{{readonly}}"></div>
+        <div>
+            Max: <input type="number" name="input" ng-model="max" min="0" max="99" required>
+            <p>current value: {{ratingVal}}</p>
+            <p>hover on : {{hoverVal?hoverVal:"none"}}</p>
+            <p>readonly : <input type="checkbox"
+                                 ng-model="readonly"></p>
+        </div>
+    </div>
 </div>
 </body>
 </html>
